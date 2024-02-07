@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <!-- BOOTSTRAP CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav style="background-color: rgb(245, 159, 19);" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <strong>
+            <a style="color: white;" class="navbar-brand" th:href="@{/}">
+                <img src="/img/trigo.png" alt="trigo"> Vitapan
+            </a>
+        </strong>
+        <button class="navbar-toggler navbar-light bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: white;" th:href="@{/usuario/login}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="vh-100 bg-vitapan">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <h3 class="mb-2">Iniciar Sesión</h3>
+
+                        <div th:if="${msgInvalidUser ne null}" class="alert alert-success alert-dismissible mt-3">
+                            [[${msgInvalidUser}]]
+                            <button class="close" data-dismiss="alert" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <img src="/img/panadero.png" alt="panadero" width="200" height="200">
+
+                        <form th:action="@{/usuario/login}" method="post">
+                            <div class="form-outline mb-4">
+                                <input type="email" class="form-control" id="username" name="username" placeholder="Ingrese su email" required autocomplete="off">
+                                <label style="font-weight: bold;" class="form-label" for="username">Email</label>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <input type="password"  class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required>
+                                <label style="font-weight: bold;" class="form-label" for="password">Contraseña</label>
+                            </div>
+
+                            <button style="background-color: rgb(245, 159, 19); color: white; font-size: 20px;" class="btn btn-lg btn-block col-12" type="submit">Acceder</button>
+                        </form>
+
+                        <hr class="my-4">
+
+                        <p>¿No tienes una cuenta? <a th:href="@{/usuario/registro}">Registrate</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

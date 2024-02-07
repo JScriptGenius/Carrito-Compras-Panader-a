@@ -1,0 +1,79 @@
+.bg-vitapan{
+    background-color: #white;
+}
+
+.boton-vitapan{
+    background-color: #F5DEB3;
+    color: #964B00;
+}
+
+.boton-vitapan:hover{
+    background-color: #D2B48C;
+    color: #964B00;
+}
+
+.presentation-video {
+    height: 958px;
+    position: absolute;
+    filter: brightness(40%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.presentation-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-fa
+}
+
+.font-h1 {
+    color: white;
+    font-size: 200px;
+    font-family: 'Oleo Script';
+}
+
+/*rgb(52, 37, 19);*/
+
+.font-header-items {
+    color: #964B00;
+    font-size: 18px;
+    font-family: 'Merriweather Sans';
+}
+
+.font-header-items:hover {
+    color: black;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+.footer-vitapan {
+    background-color: #F5DEB3;
+    color: #964B00;
+    text-align: center;
+    padding: 30px;
+}
+
+.footer-vitapan-home {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #F5DEB3;
+    color: #964B00;
+    text-align: center;
+    padding: 30px;
+}

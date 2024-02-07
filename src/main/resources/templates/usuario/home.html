@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
+<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div>
+<!-- CONTENT -->
+<div class="container">
+    <!-- BANNER -->
+    <div class="mt-4 mb-4">
+        <img src="/img/banner_vitapan.jpg" alt="banner" class="rounded">
+    </div>
+
+    <div th:if="${msgConfirmacionUser ne null}" class="alert alert-success alert-dismissible mt-3">
+        [[${msgConfirmacionUser}]]
+        <button class="close" data-dismiss="alert" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div th:if="${msgConfirmacionOrden ne null}" class="alert alert-success alert-dismissible mt-3">
+        [[${msgConfirmacionOrden}]]
+        <button class="close" data-dismiss="alert" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Page Features -->
+    <div class="row text-center">
+        <div class="col-lg-3 col-md-6 mb-4" th:each="producto : ${productos}">
+            <div class="card h-100">
+                <img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="">
+                <div class="card-body">
+                    <p class="card-text" th:text="${producto.nombre}"></p>
+                </div>
+                <div class="card-footer">
+                    <a style="background-color: rgb(245, 159, 19); color: white;" th:href="@{/productohome/{id} (id=${producto.idProducto})}" class="btn">Ver producto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

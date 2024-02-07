@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Show Productos</title>
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+</head>
+<body>
+<!-- Navigation -->
+<div th:include="administrador/template_admin.html::header"></div>
+<!-- Page Content -->
+<div class="container py-5">
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">
+    Vitapan <small>Productos</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a th:href="@{/administrador}">Home</a></li>
+    <li class="breadcrumb-item active">Ver Productos</li>
+  </ol>
+
+  <div class="d-flex justify-content-end">
+    <a class="btn btn-dark" th:href="@{/productos/create}">Crear Producto</a>
+  </div>
+
+  <div th:if="${msgConfirmacion ne null}" class="alert alert-success alert-dismissible mt-3">
+    [[${msgConfirmacion}]]
+    <button class="close" data-dismiss="alert" aria-label="Cerrar">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <h2>PRODUCTOS</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Inventario</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prod : ${productos}">
+      <td th:text="${prod.idProducto}"></td>
+      <td th:text="${prod.nombre}"></td>
+      <td th:text="${prod.descripcion}"></td>
+      <td th:text="${prod.cantidad}"></td>
+      <td th:text="${prod.precio}"></td>
+      <td>
+        <a  class="btn btn-warning" th:href="@{productos/edit/{id}(id=${prod.idProducto})}">Editar</a>
+        <a  class="btn btn-danger" th:href="@{productos/delete/{id}(id=${prod.idProducto})}">Eliminar</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
