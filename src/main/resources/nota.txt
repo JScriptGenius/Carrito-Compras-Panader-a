@@ -1,0 +1,4 @@
+-Al crear el primer usuario tienes que cambiarle manualmente en el cliente de base de datos que estes usando el campo
+tipo_usuario a ADMIN ya que el programa registra a todos los usuarios con el tipo de usuario USER por defecto.
+
+-creditos Arellano Castillo Jhosep Bernabe.
